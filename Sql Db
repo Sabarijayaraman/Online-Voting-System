@@ -1,0 +1,22 @@
+CREATE DATABASE votingdb;
+USE votingdb;
+
+CREATE TABLE voters (
+    voterId INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    password VARCHAR(50),
+    hasVoted BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE candidates (
+    candidateId INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    party VARCHAR(50)
+);
+
+CREATE TABLE votes (
+    voteId INT PRIMARY KEY AUTO_INCREMENT,
+    voterId INT,
+    candidateId INT,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
